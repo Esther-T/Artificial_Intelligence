@@ -5,7 +5,7 @@ from mcp import handle_request
 # available_models = GPT4All.list_models()
 # print("Available GPT4All models:", available_models)
 
-model = GPT4All("C:\\Users\\tanes\\Documents\\Projects\\AI\\Agents\\Llama-3.2-1B-Instruct-Q3_K_XL.gguf")
+model = GPT4All("Agents\\Llama-3.2-1B-Instruct-Q3_K_XL.gguf")
 
 def ask_agent(prompt: str) -> str:
     return model.generate(prompt)
