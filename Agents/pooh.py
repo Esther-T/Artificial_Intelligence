@@ -2,7 +2,7 @@ import re
 from gpt4all import GPT4All
 from tools import add_numbers 
 
-MODEL_NAME = ""
+MODEL_NAME = "C:\\Users\\tanes\\Documents\\Projects\\AI\\Models\\Llama-3.2-1B-Instruct-Q3_K_XL.gguf"
 model = GPT4All(MODEL_NAME)
 
 def ask_agent(user_input: str) -> str:
@@ -14,10 +14,11 @@ def ask_agent(user_input: str) -> str:
     else:
         agent_prompt = f"""
 You are a friendly AI assistant 🐻.
-User asked: "{user_input}"
+User asked: {user_input}
 Respond briefly and nicely.
 """
         return model.generate(agent_prompt).strip()
+
 
 def main():
     print("I'm your friendly AI Agent 🐻 Type 'exit' to quit.")
