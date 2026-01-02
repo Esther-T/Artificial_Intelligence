@@ -2,7 +2,7 @@ import re
 from gpt4all import GPT4All
 from tools import add_numbers 
 
-MODEL_NAME = "C:\\Users\\tanes\\Documents\\Projects\\AI\\Models\\Llama-3.2-1B-Instruct-Q3_K_XL.gguf"
+MODEL_NAME = "\\AI\\Models\\Llama-3.2-1B-Instruct-Q3_K_XL.gguf"
 model = GPT4All(MODEL_NAME)
 
 
