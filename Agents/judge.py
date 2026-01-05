@@ -2,10 +2,9 @@ from sentence_transformers import SentenceTransformer
 import faiss
 import json
 import numpy as np
-from gpt4all import GPT4All
+import requests
+import json
 
-MODEL_NAME = "\\AI\\Models\\Meta-Llama-3.1-8B-Instruct-Q8_0.gguf"
-gptModel = GPT4All(MODEL_NAME)
 
 model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
@@ -30,7 +29,9 @@ def detect_intent(user_input: str) -> str:
     retrieved = retrieve_jailbreak_context(user_input, k=3)
     
     patterns_text = "\n".join(f"- {item['text']}" for item in retrieved)
-         
+    
+    print(patterns_text)
+    
     classifier_prompt = f"""
     
     You are a classifier.
@@ -48,9 +49,32 @@ def detect_intent(user_input: str) -> str:
     Answer with ONE label from above.
 
     """
-    verdict = classify_with_gpt4all(classifier_prompt).strip().upper()
     
-    return verdict
+    response = requests.post(
+    url="https://openrouter.ai/api/v1/chat/completions",
+    headers={
+    "Authorization": "Bearer <my API KEY>",
+    "Content-Type": "application/json",
+    },
+    data=json.dumps({
+    "model": "google/gemma-3-27b-it:free",
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": classifier_prompt
+          },
+        ]
+      }
+    ]
+    })
+    )
+    
+    return response.json()
+    
+    
 
 def classify_with_gpt4all(prompt: str) -> str:
     output = gptModel.generate(prompt, max_tokens=10)
@@ -65,13 +89,10 @@ def main():
 
         verdict = detect_intent(user_input) 
         
-        label = verdict.strip().upper()
-
-        """
-        if label not in {"SAFE", "SUSPICIOUS", "JAILBREAK"}:
-            label = "JAILBREAK"
-        """
-        print(verdict)
+        content = verdict["choices"][0]["message"]["content"]
+        print(content)
+        
+        
 
 if __name__ == "__main__":
     main()
