@@ -13,10 +13,6 @@ b) Pattern Retrieval These embeddings are compared against a curated dictionary 
 
 c) LLM Evaluation: Retrieved context is then evaluated by Gemini AI, accessed via the OpenRouter.ai API, to determine the final classification.
 
-Frontend: Hosted on GitHub Pages
-
-Backend: Deployed on Render
-
 Note: This project uses free-tier resources for hosting and API access.
 As a result:
 -The backend server may enter a sleep state when idle and can take a short time to respond on first request.
