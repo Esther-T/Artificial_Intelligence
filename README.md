@@ -3,9 +3,7 @@ Judge is finally live: https://esther-t.github.io/prompt-analyzer-app/
 This project is a personal LLM security application designed to detect and classify potentially malicious prompts submitted to large language models.
 The system analyzes user input and categorizes prompts into one of the following classes:
 
--SAFE -> Benign, non-malicious prompts
--SUSPICIOUS -> Prompts that may indicate misuse or risky intent
--JAILBREAK -> Prompts attempting to bypass model safeguards
+SAFE (Benign, non-malicious prompts), SUSPICIOUS (Prompts that may indicate misuse or risky intent), JAILBREAK (Prompts attempting to bypass model safeguards)
 
 The application follows a Retrieval-Augmented Generation (RAG) architecture:
 
