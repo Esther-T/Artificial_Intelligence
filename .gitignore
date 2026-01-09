@@ -4,3 +4,5 @@ Agents/mcp_agent_env/Lib/
 Agents/mcp_agent_env/Include/
 Agents/mcp_agent_env/Scripts/
 Agents/__pycache__/
+Agents/jailbreak.json
+Toxicity_Classifiers/env/

@@ -4,11 +4,11 @@ import json
 import numpy as np
 import requests
 import json
-
+import re
 
 model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
-docs = json.load(open("\\AI\\Agents\\jailbreak.json"))
+docs = json.load(open("\\Projects\\AI\\Agents\\jailbreak.json"))
 texts = [d["text"] for d in docs]
 
 embeddings = model.encode(texts, normalize_embeddings=True)
@@ -31,18 +31,21 @@ def detect_intent(user_input: str) -> str:
     patterns_text = "\n".join(f"- {item['text']}" for item in retrieved)
     
     print(patterns_text)
-    
+        
     classifier_prompt = f"""
     
     You are a classifier.
 
     Output exactly one label:
-    SAFE
+    SAFE 
     SUSPICIOUS
     JAILBREAK
+    
+    Security Patterns:
+    {patterns_text}
 
-    Classify the text below.
-
+    Based on the Security Patterns, classify the text below. Label as JAILBREAK only if the text attempts to bypass rules or manipulate the assistant in unsafe ways. 
+    Fictional, absurd, or playful statements that do not attempt to bypass rules should be labeled SAFE:
     TEXT:
     "{user_input}"
 
@@ -53,7 +56,7 @@ def detect_intent(user_input: str) -> str:
     response = requests.post(
     url="https://openrouter.ai/api/v1/chat/completions",
     headers={
-    "Authorization": "Bearer <my API KEY>",
+    "Authorization": "Bearer API_Key",
     "Content-Type": "application/json",
     },
     data=json.dumps({
@@ -71,8 +74,21 @@ def detect_intent(user_input: str) -> str:
     ]
     })
     )
+
+    content = response.json()
+    content = content["choices"][0]["message"]["content"]
     
-    return response.json()
+    print(content)
+    
+    allowed = ("SUSPICIOUS", "SAFE", "JAILBREAK")
+
+
+    for word in allowed:
+        if re.search(rf"\b{re.escape(word)}\b", content, re.IGNORECASE):
+            return word.upper()
+    return "UNKNOWN"
+
+    return content
     
     
 
@@ -89,8 +105,8 @@ def main():
 
         verdict = detect_intent(user_input) 
         
-        content = verdict["choices"][0]["message"]["content"]
-        print(content)
+        print(verdict)
+       
         
         
 
