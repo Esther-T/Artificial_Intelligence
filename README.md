@@ -19,7 +19,7 @@ The quoted text acted as a benign placeholder to make the input appear legitimat
 
 ---
 
-## Project 2 — Judge: Prompt Security Analyzer
+## Project 2 - Judge: Prompt Security Analyzer
 
 **Judge** is a personal LLM security application designed to detect and classify potentially malicious prompts submitted to large language models.
 
