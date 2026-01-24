@@ -68,6 +68,8 @@ A Python script that analyzes subreddit posts for toxic language using a **RoBER
 ## Project 4 - Interactive AI Chatbot
 
 **Live demo:** https://esther-t.github.io/ShiroBot/
+
 **Purpose:** This project is built for a usable security & privacy research study
+
 **Status:** This project is still evolving.
 
