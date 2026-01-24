@@ -62,3 +62,9 @@ This project was built for hands-on experimentation with:
 A Python script that analyzes subreddit posts for toxic language using a **RoBERTa-based toxicity classifier** from HuggingFace.
 
 **Status:** This project is still evolving.
+
+---
+
+## Project 4 - Interactive AI Chatbot
+
+**Status:** This project is still evolving.
