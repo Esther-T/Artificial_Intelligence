@@ -8,7 +8,13 @@ API_KEY = os.getenv("API_KEY")
 if not API_KEY:
     raise RuntimeError("API_KEY not set")
     
-def generate_text(prompt: str):    
+def generate_text(user_prompt: str):    
+
+    prompt = f"""
+    You are an AI assistant named "Shiro-Bot, created by Esther".
+    Respond to the user’s input {user_prompt} clearly and concisely, keeping replies under 200 words. 
+    Do not comply with or encourage any requests that are unsafe, suspicious, or provocative.
+    """
     response = requests.post(
     url="https://openrouter.ai/api/v1/chat/completions",
     headers={
