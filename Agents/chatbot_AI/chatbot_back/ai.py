@@ -3,7 +3,8 @@ import requests
 import json
 
 
-API_KEY = os.getenv("API_KEY")
+# API_KEY = os.getenv("API_KEY")
+API_KEY = os.environ.get("API_KEY") 
 
 if not API_KEY:
     raise RuntimeError("API_KEY not set")
