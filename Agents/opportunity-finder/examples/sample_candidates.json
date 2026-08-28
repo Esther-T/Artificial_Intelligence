@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Student access to a free AI coding assistant",
+    "url": "https://example.edu/student-ai-benefit",
+    "summary": "Verified students can apply for four months of free access. Applications close September 30.",
+    "source": "Example University",
+    "published_at": "2026-08-26T13:00:00Z"
+  },
+  {
+    "title": "Discounted public transit semester pass",
+    "url": "https://example.gov/student-transit-pass",
+    "summary": "Full-time students in New York may qualify for a reduced-price semester transit pass.",
+    "source": "Example Transit Authority",
+    "published_at": "2026-08-25T09:00:00Z"
+  },
+  {
+    "title": "Local casino welcome bonus",
+    "url": "https://example.com/casino-bonus",
+    "summary": "New customers can receive a gambling credit.",
+    "source": "Example Promotions",
+    "published_at": "2026-08-27T08:00:00Z"
+  }
+]
+

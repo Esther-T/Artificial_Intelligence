@@ -1,0 +1,9 @@
+# Add official RSS/Atom feeds here. Empty by default so the first scheduled run
+# cannot unexpectedly crawl broad sources. `--dry-run` uses examples/sample_candidates.json.
+feeds: []
+
+collection:
+  timeout_seconds: 20
+  maximum_items_per_feed: 25
+  maximum_candidates_per_run: 100
+

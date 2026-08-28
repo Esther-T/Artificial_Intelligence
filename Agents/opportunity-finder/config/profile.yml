@@ -1,0 +1,22 @@
+# Keep this useful but non-sensitive. This file will live in your private repo.
+status:
+  student: true
+  study_level: graduate
+  field: computer_science
+
+location:
+  country: United States
+  state: New York
+
+interests:
+  - artificial intelligence
+  - software engineering
+  - developer tools
+  - personal finance
+
+constraints:
+  budget_conscious: true
+  preferred_price: free or student discount
+
+existing_services: []
+

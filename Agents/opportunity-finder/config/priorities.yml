@@ -1,0 +1,17 @@
+updated: 2026-08-27
+
+# Weights are deliberately simple and can be refined later.
+topics:
+  free AI tools: 5
+  student software benefits: 5
+  internships: 4
+  grocery savings: 4
+  scholarships: 3
+  transportation discounts: 2
+
+exclude:
+  - gambling
+  - high-interest loans
+
+maximum_results: 10
+
