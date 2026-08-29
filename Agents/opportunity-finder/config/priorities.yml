@@ -10,7 +10,6 @@ topics:
   transportation discounts: 2
 
 exclude:
-  - gambling
   - high-interest loans
 
 maximum_results: 10

@@ -37,7 +37,7 @@ python -m opportunity_scout --dry-run --no-save
 
 ## Put it on GitHub
 
-1. Create a **private** repository.
+1. Create a repository.
 2. Push this directory to its default branch.
 3. Edit the YAML files under `config/`.
 4. In **Settings > Secrets and variables > Actions**, add whichever secrets
@@ -51,7 +51,7 @@ python -m opportunity_scout --dry-run --no-save
 6. Open **Actions > Daily opportunity scout > Run workflow** for a manual test.
 
 The default scheduled workflow uses deterministic analysis, so it runs without
-a model API key. Switch `MODEL_PROVIDER` to `gemini` or `openrouter` after
+a model API key. Switch `MODEL_PROVIDER` to `gemini` after
 choosing a model.
 
 ## Configuration
@@ -84,5 +84,5 @@ Load profile and priorities
 - Eligibility verification is advisory; important claims must be checked at
   the linked primary source.
 - The generic webhook sends a JSON payload with a `content` property. Adapt
-  `opportunity_scout/deliver.py` for email, Telegram, or another destination.
+  `opportunity_scout/deliver.py` for email or another destination.
 
